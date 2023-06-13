@@ -35,7 +35,7 @@ Extract the significant genes from the v3.2 annotation file of B. distachyon, ba
 
 **gene_lists_gene_search_FDR_wrp.R**
 
-Use the significant genes and create a table of environmental variables (columns) and significant genes (rows) with 0s (presence) and 1s (absence) as values.
+Use the significant genes and create a table of environmental variables (columns) and significant genes (rows) with 0s (absence) and 1s (presence) as values.
 
 **UpSet.R**
 
