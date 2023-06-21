@@ -29,7 +29,7 @@ Loop for GEAs using the software GEMMA.
 
 Extract regions of significance based on p-values above the False Discovery Rate threshold.
 
-**bedtools_intersect_loop_FDR_wrp.R**
+**bedtools_intersect_loop_FDR_wrp.sh**
 
 Extract the significant genes from the v3.2 annotation file of B. distachyon, based on the significant regions.
 
