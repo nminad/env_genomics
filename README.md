@@ -13,7 +13,7 @@ Estimate population size with Relate.
 
 Calculate pi values using pixy.
 
-**Tajimas_d_fom_pixy_pi.R**
+**Tajimas_d_from_pixy_pi.R**
 
 Calculate Tajima's D values from pixy.
 
