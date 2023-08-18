@@ -1,6 +1,10 @@
 # env_genomics
 Scripts used in: "New resources for environmental genomics in the wild Mediterranean grass B. distachyon", https://doi.org/10.1101/2023.06.01.543285
 
+## fastq_to_vcf
+
+bioinformatics pipeline from fastq files to .vcf including only SNPs.
+
 ## pop_genomics
 
 **LEA_PCA.R**
@@ -22,6 +26,18 @@ Calculate Tajima's D values from pixy.
 **bpp_CS_RH.sh**
 
 Run bpp from bam files and plot a tree.
+
+##GEA
+
+**download_worldclim2.1.R**
+
+Download global environmental data and extract the coordinate specific data from those files.
+
+**wrapper_GEA.sh**
+
+Run all the scripts with _wrp ending. Starting from vcf file to Manhattan plots and GEA results.
+
+### included in the wrapper
 
 **gemma_loop.sh**
 
