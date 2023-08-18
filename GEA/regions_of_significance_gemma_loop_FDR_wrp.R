@@ -4,7 +4,7 @@ library(rehh)
 library(hdi)
 library(tidyverse)
 
-setwd("/media/nikos/LaCie/Nikos_data/GEA/GEA_Yann_noHe/2_output/gemma_output/")
+setwd("/2_output/gemma_output/")
 
 # Open and read the file list including all the variable names
 f_short <- list.files(full.names = F, pattern = "assoc")
