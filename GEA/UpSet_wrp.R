@@ -3,7 +3,7 @@
 library(tidyverse)
 library(UpSetR)
 
-setwd("/media/nikos/LaCie/Nikos_data/GEA/GEA_Yann_noHe/2_output/FDR/bedtools_intersect")
+setwd("/2_output/FDR/bedtools_intersect")
 
 # I have to remove the rows that do not have 0s or 1s
 
