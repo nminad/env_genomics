@@ -2,7 +2,7 @@
 
 library(tidyverse)
 
-setwd("/media/nikos/LaCie/Nikos_data/Lineage_Clade_vcf/noHe_Analysis//0_data")
+setwd("/0_data")
 
 # File name to rename
 filename <- 'plinkfile.map'
