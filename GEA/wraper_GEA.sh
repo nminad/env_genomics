@@ -2,11 +2,11 @@
 
 vcftools --gzvcf ../0_data/Yann_filt_no_missing_noHet.vcf.gz --plink --out ../0_data/plinkfile
 
-Rscript plinkfile_old_to_new.R
+Rscript plinkfile_old_to_new_wrp.R
 
 plink1.9 --file ../0_data/plinkfile --make-bed --out ../0_data/binary --noweb
 
-Rscript binary_fam_old_to_new.R
+Rscript binary_fam_old_to_new_wrp.R
 
 bash gemma_loop_wrp.sh
 
