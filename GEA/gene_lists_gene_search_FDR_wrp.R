@@ -7,7 +7,7 @@
 library(tidyverse)
 library(readr)
 library(stringr)
-setwd("/media/nikos/LaCie/Nikos_data/GEA/GEA_Yann_noHe/2_output/FDR/bedtools_intersect")
+setwd("/2_output/FDR/bedtools_intersect")
 
 # 1. convert and only get the gene names
 
