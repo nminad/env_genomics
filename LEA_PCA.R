@@ -1,9 +1,10 @@
-# Create admixture plot
+# Create admixture plot, Evanno, PCA
 # Nikos Minadakis - April 2023
 
 library(SNPRelate)
 library(LEA)
 library(scales)
+library(tidyverse)
 
 setwd("/media/nikos/LaCie/Nikos_data/GEA/GEA_Yann_noHe/2_output/Admixture_LEA/0_data/")
 
@@ -212,8 +213,6 @@ dK_df <- data.frame(
 
 dK_df$step <- rep('deltaK', nrow(dK_df))
 
-
-
 # Plot
 
 comb <- ce_m[,c(2,3)]
@@ -241,6 +240,85 @@ ggplot(comb) +
   theme_bw(base_size=12)
 dev.off()
 
+my_pca <- snpgdsPCA(genofile, snp.id = snpset.id)
+
+closefn.gds(genofile) # do not forget to close the gds file
+
+plot(my_pca$eigenvect[,1],my_pca$eigenvect[,2])
+plot(my_pca$eigenvect[,2],my_pca$eigenvect[,3])
+
+# calculate percentages
+pc.percent <- my_pca$varprop*100
+percentages <- round(pc.percent, 2)
+percentages
+
+my_pca_df <- data.frame(sample.id = my_pca$sample.id, # make data frame
+                        PC1 = my_pca$eigenvect[,1], # 1st PC
+                        PC2 = my_pca$eigenvect[,2], # 2nd PC
+                        PC3 = my_pca$eigenvect[,3], # 3rd PC
+                        PC4 = my_pca$eigenvect[,4], # 4th PC
+                        PC5 = my_pca$eigenvect[,5], # 5th PC
+                        PC6 = my_pca$eigenvect[,6], # 6th PC
+                        PC7 = my_pca$eigenvect[,7], # 7th PC
+                        stringsAsFactors = FALSE)
+
+write.csv(my_pca_df, "pca_table_Bdis332_2023.csv")
+
+info_clades <- read.csv("./CLADE_SOURCE_INFO.csv", header = T)
+
+new_ordered <- as.data.frame(info_clades[match(my_pca_df$sample.id, info_clades$name),])
+#new_ordered <- subset(new_ordered, (!is.na(new_ordered[,2])))
+
+my_pca_df$clade <- new_ordered$cluster
+my.colors <- c( "#96127d", "#21908c", "#5DC863FF", "#3B528BFF", "#FDE725FF")
+show_col(my.colors)
+
+my_pca_df$source <- new_ordered$source
+my.colors.source <- c( "red", "green", "black", "blue", "azure4")
+show_col(my.colors.source)
+
+pc1_clade <- ggplot(my_pca_df, aes(x=PC1, y=PC2, label=sample.id, col = clade)) +
+  geom_point(size=2, alpha = 0.8) +
+  xlab(paste("PC1: ", percentages[1], "%", sep = "")) +
+  ylab(paste("PC2: ", percentages[2], "%", sep = ""))
+
+pdf("PC1-PC2_clade.pdf")
+pc1_clade + scale_color_manual(values = my.colors) +
+  theme_test()
+dev.off()
+
+pc1_source <- ggplot(my_pca_df, aes(x=PC1, y=PC2, label=sample.id, col = source)) +
+  geom_point(size=2, alpha = 0.8) +
+  xlab(paste("PC1: ", percentages[1], "%", sep = "")) +
+  ylab(paste("PC2: ", percentages[2], "%", sep = ""))
+
+pdf("PC1-PC2_source.pdf")
+pc1_source + scale_color_manual(values = my.colors.source) +
+  theme_test()
+dev.off()
+
+
+# rest of PCAs
+
+pc2 <- ggplot(my_pca_df, aes(x=PC2, y=PC3, label=sample.id, col = clade)) +
+  geom_point(size=2) +
+  xlab(paste("PC2: ", percentages[2], "%", sep = "")) +
+  ylab(paste("PC3: ", percentages[3], "%", sep = ""))
+
+pdf("PC2-PC3_Lineage_A.pdf")
+pc2 + scale_color_manual(values = my.colors) +
+  theme_test()
+dev.off()
+
+pc3 <- ggplot(my_pca_df, aes(x=PC3, y=PC4, label=sample.id, col = clade)) +
+  geom_point(size=2) +
+  xlab(paste("PC3: ", percentages[3], "%", sep = "")) +
+  ylab(paste("PC4: ", percentages[4], "%", sep = ""))
+
+pdf("PC3-PC4_Lineage_A.pdf")
+pc3 + scale_color_manual(values = my.colors) +
+  theme_test()
+dev.off()
 
 
 
