@@ -1,4 +1,4 @@
-# Create admixture plot, Evanno, PCA
+# Create sNMF plot, Evanno, PCA
 # Nikos Minadakis - April 2023
 
 library(SNPRelate)
