@@ -27,7 +27,11 @@ Calculate Tajima's D values from pixy.
 
 Run bpp from bam files and plot a tree.
 
-##GEA
+**gene_age_statistics.R**
+
+Gene age statistics based on significant genes for each variable. Boxplots for gene ages.
+
+## GEA
 
 **download_worldclim2.1.R**
 
@@ -37,9 +41,17 @@ Download global environmental data and extract the coordinate specific data from
 
 Run all the scripts with _wrp ending. Starting from vcf file to Manhattan plots and GEA results.
 
-### included in the wrapper
+### Included in the wrapper:
 
-**gemma_loop.sh**
+**plinkfile_old_to_new_wrp.R**
+
+Put only the chromosome number in the first column of the .map file.
+
+**binary_fam_old_to_new_wrp.R**
+
+Put the phenotypes after the 5th column of the .fam file.
+
+**gemma_loop_wrp.sh**
 
 Loop for GEAs using the software GEMMA.
 
@@ -55,10 +67,7 @@ Extract the significant genes from the v3.2 annotation file of B. distachyon, ba
 
 Use the significant genes and create a table of environmental variables (columns) and significant genes (rows) with 0s (absence) and 1s (presence) as values.
 
-**UpSet.R**
+**UpSet_wrp.R**
 
 Create an Upset plot using the gene list table.
 
-**gene_age_statistics.R**
-
-Gene age statistics based on significant genes for each variable. Boxplots for gene ages.
