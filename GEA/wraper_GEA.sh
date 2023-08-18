@@ -8,7 +8,7 @@ plink1.9 --file ../0_data/plinkfile --make-bed --out ../0_data/binary --noweb
 
 Rscript binary_fam_old_to_new.R
 
-bash gemma_loop.sh
+bash gemma_loop_wrp.sh
 
 mkdir ../2_output/gemma_output
 
@@ -23,4 +23,4 @@ Rscript gene_lists_gene_search_FDR_wrp.R
 
 Rscript Loop_for_plots_GWAS_wrp.R
 
-Rscript UpSet.R
+Rscript UpSet_wrp.R
