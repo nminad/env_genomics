@@ -1,5 +1,5 @@
 # env_genomics
-Scripts used in: "New resources for environmental genomics in the wild Mediterranean grass B. distachyon", https://doi.org/10.1101/2023.06.01.543285
+Scripts used in: "The demographic history of the wild crop relative Brachypodium distachyon is shaped by distinct past and present ecological niches", https://doi.org/10.1101/2023.06.01.543285
 
 ## fastq_to_vcf
 
